@@ -11,7 +11,7 @@ public class KonsolesVeiksmai {
     public void meniuKonsoleja(Connection jungtis){
         skait.nextLine();
         System.out.println("isvesti visus receptus");
-        ReceptuVeiksmai.gautiVisusReceptus(jungtis) = skait.nextLine();
+        skait.nextLine();
         System.out.println("isvesti visu ingredientu kainu vidurki");
         skait.nextLine();
         System.out.println("isvesti visus ingredientus pirgesnius uz X");

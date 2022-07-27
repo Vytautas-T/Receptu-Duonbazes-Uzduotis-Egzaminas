@@ -19,7 +19,7 @@ public class ReceptuVeiksmai {
             ResultSet rezultatas = paruostukas.executeQuery();
 
             while (rezultatas.next()){
-                visiReceptai.add(new Receptai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina"), rezultatas.getString("nurodymai")))
+                visiReceptai.add(new Receptai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina"), rezultatas.getString("nurodymai")));
             }
         }
         catch (SQLException e) {
