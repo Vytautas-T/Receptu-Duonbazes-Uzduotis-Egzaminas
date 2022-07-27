@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 27, 2022 at 09:01 AM
+-- Generation Time: Jul 27, 2022 at 09:07 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS `receptai`;
 CREATE TABLE IF NOT EXISTS `receptai` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `pavadinimas` varchar(50) NOT NULL,
-  `kaina` decimal(7,0) UNSIGNED NOT NULL,
+  `kaina` decimal(7,2) UNSIGNED NOT NULL,
   `nurodymai` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS `receptai` (
 --
 
 INSERT INTO `receptai` (`id`, `pavadinimas`, `kaina`, `nurodymai`) VALUES
-(1, 'bulviu kose', '6', 'kilas bulviu , pienas ,svietas , isvirti bulves sutrinti ir sudeti likusius ingredientus'),
-(2, 'vistienos kepsnys', '9', 'kepti vistiena ir valgyti!');
+(1, 'bulviu kose', '6.87', 'kilas bulviu , pienas ,svietas , isvirti bulves sutrinti ir sudeti likusius ingredientus'),
+(2, 'vistienos kepsnys', '9.35', 'kepti vistiena ir valgyti!');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
