@@ -11,4 +11,8 @@ public class PapildomiVeiksmai {
             System.out.println("Receptas = " + t);
         }
     }
+
+    public static void bruksniukai(){
+        System.out.println("--------------------------------------------");
+    }
 }

@@ -11,7 +11,13 @@ public class PagrindinePrograma {
         Connection jungtis = DuonbazesVeiksmai.prisijungtiPrieDuombazes();
 
         utility.PapildomiVeiksmai.isvestiListaEilutemis(ReceptuVeiksmai.gautiVisusReceptus(jungtis));
+        utility.PapildomiVeiksmai.bruksniukai();
         System.out.println(IngredientuVeiksmai.ingredientuKainuKainuVidurkis(jungtis));
-        utility.PapildomiVeiksmai.isvestiListaEilutemis(IngredientuVeiksmai.grazintiIngredientusKuriuKainosMazesnesUzX(5.47,jungtis));
+        utility.PapildomiVeiksmai.bruksniukai();
+        utility.PapildomiVeiksmai.isvestiListaEilutemis(IngredientuVeiksmai.grazintiIngredientusKuriuKainosMazesnesUzX(4.47,jungtis));
+        utility.PapildomiVeiksmai.bruksniukai();
+        utility.PapildomiVeiksmai.isvestiListaEilutemis(IngredientuVeiksmai.grazintiTopXingredientus(3,jungtis));
+        utility.PapildomiVeiksmai.bruksniukai();
+        utility.PapildomiVeiksmai.isvestiListaEilutemis(ReceptuVeiksmai.grazintiIngredientus("bulviu kose",jungtis));
     }
 }

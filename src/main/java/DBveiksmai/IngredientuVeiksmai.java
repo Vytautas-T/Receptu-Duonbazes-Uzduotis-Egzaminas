@@ -29,11 +29,11 @@ public class IngredientuVeiksmai {
 
     public static ArrayList<Ingredientai> grazintiIngredientusKuriuKainosMazesnesUzX(double x,Connection jungtis){
         ArrayList<Ingredientai> pigesniIngredientai = new ArrayList<>();
-        String SQLuzklausa = "SELECT kaina FROM ingredientai WHERE kaina < ?";
+        String SQLuzklausa = "SELECT id,pavadinimas,kaina FROM ingredientai WHERE kaina < ?";
 
         try{
             PreparedStatement paruostukas = jungtis.prepareStatement(SQLuzklausa);
-            paruostukas.setDouble(1, x);
+            paruostukas.setDouble(1,x );
             ResultSet rezultatas = paruostukas.executeQuery();
             while (rezultatas.next()){
                 pigesniIngredientai.add(new Ingredientai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina")));
@@ -41,6 +41,26 @@ public class IngredientuVeiksmai {
         }
         catch (SQLException e){
             e.printStackTrace();
+            System.out.println("nepavyko rasti ingredientu");
+        }
+        return pigesniIngredientai;
+    }
+
+    public static ArrayList<Ingredientai> grazintiTopXingredientus(int x,Connection jungtis){
+        ArrayList<Ingredientai> pigesniIngredientai = new ArrayList<>();
+        String SQLuzklausa = "SELECT id,pavadinimas,kaina FROM ingredientai ORDER BY kaina DESC LIMIT ?";
+
+        try{
+            PreparedStatement paruostukas = jungtis.prepareStatement(SQLuzklausa);
+            paruostukas.setInt(1,x );
+            ResultSet rezultatas = paruostukas.executeQuery();
+            while (rezultatas.next()){
+                pigesniIngredientai.add(new Ingredientai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina")));
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+            System.out.println("nepavyko rasti ingredientu");
         }
         return pigesniIngredientai;
     }
