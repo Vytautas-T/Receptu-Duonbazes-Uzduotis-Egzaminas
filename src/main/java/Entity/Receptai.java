@@ -6,7 +6,7 @@ public class Receptai {
     private double kaina;
     private String nurodymai;
 
-    public Receptai(int id, String pavadinimas, double kaina, String nurodymai) {
+    public Receptai(String pavadinimas, double kaina, String nurodymai) {
         this.id = id;
         this.pavadinimas = pavadinimas;
         this.kaina = kaina;
@@ -14,6 +14,9 @@ public class Receptai {
     }
 
     public Receptai(int id) {
+    }
+
+    public Receptai(int id, String pavadinimas) {
     }
 
     public int getId() {
@@ -55,6 +58,14 @@ public class Receptai {
                 ", pavadinimas='" + pavadinimas + '\'' +
                 ", kaina=" + kaina +
                 ", nurodymai='" + nurodymai + '\'' +
+                '}';
+    }
+
+    @Override
+    public String beNurodimuIrKainu() {
+        return "Receptai{" +
+                "id=" + id +
+                ", pavadinimas='" + pavadinimas + '\'' +
                 '}';
     }
 }
