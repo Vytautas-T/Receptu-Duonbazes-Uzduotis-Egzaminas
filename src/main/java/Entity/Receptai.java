@@ -19,6 +19,13 @@ public class Receptai {
     public Receptai(int id, String pavadinimas) {
     }
 
+    public Receptai(int id, String pavadinimas, double kaina, String nurodymai) {
+        this.id = id;
+        this.pavadinimas = pavadinimas;
+        this.kaina = kaina;
+        this.nurodymai = nurodymai;
+    }
+
     public int getId() {
         return id;
     }
@@ -61,7 +68,6 @@ public class Receptai {
                 '}';
     }
 
-    @Override
     public String beNurodimuIrKainu() {
         return "Receptai{" +
                 "id=" + id +

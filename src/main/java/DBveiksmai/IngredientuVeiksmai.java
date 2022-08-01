@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class IngredientuVeiksmai {
-    public static double ingredientuKainuKainuVidurkis(Connection jungtis) {
+    public static double ingredientuKainuVidurkis(Connection jungtis) {
         double kainuVidurkis = 0;
         String SQLuzklausa = "SELECT AVG(kaina) AS vidurkis FROM ingredientai";
 

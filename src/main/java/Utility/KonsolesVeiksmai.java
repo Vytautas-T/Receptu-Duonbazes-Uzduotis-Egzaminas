@@ -12,7 +12,9 @@ public class KonsolesVeiksmai {
         System.out.println("1. isvesti visus receptus");
         System.out.println("2. isvesti visu ingredientu kainu vidurki");
         System.out.println("3. isvesti visus ingredientus pigesnius uz X");
-        System.out.println("4. isvesti ingredientai yra n-ajame recepte");
+        System.out.println("4. isvesti ingredientus pagal kaina");
+        System.out.println("5. isvesti ingredientus pagal `id` numeri");
+        System.out.println("6. ideti nauja recepta");
 
         return skait.nextInt();
     }
@@ -30,6 +32,7 @@ public class KonsolesVeiksmai {
         String pavadinimas = skait.nextLine();
         System.out.println("Įveskite Recepto kainą: ");
         double kaina = skait.nextDouble();
+        skait.nextLine();
         System.out.println("Įveskite nurodymus: ");
         String nurodymai = skait.nextLine();
 

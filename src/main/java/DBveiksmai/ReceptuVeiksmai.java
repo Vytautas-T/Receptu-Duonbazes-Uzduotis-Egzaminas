@@ -13,14 +13,14 @@ import java.sql.ResultSet;
 public class ReceptuVeiksmai {
     public static ArrayList<Receptai> gautiVisusReceptus(Connection jungtis){
         ArrayList<Receptai> visiReceptai = new ArrayList<>();
-        String sqlUzklausa = "SELECT r.* FROM receptai r WHERE 1";
+        String sqlUzklausa = "SELECT * FROM receptai ";
 
         try{
             PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
             ResultSet rezultatas = paruostukas.executeQuery();
 
             while (rezultatas.next()){
-                visiReceptai.add(new Receptai(rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina"), rezultatas.getString("nurodymai")));
+                visiReceptai.add(new Receptai(rezultatas.getInt("id"), rezultatas.getString("pavadinimas"), rezultatas.getDouble("kaina"), rezultatas.getString("nurodymai")));
             }
         }
         catch (SQLException e) {
@@ -53,7 +53,7 @@ public class ReceptuVeiksmai {
     }
 
     public static Receptai idetiRecepta(Connection jungtis, Receptai receptas) {
-        String sqlUzklausa = "INSERT INTO receptas(pavadinimas, kaina, nurodymai) VALUES (?, ?, ?)";
+        String sqlUzklausa = "INSERT INTO receptai(pavadinimas, kaina, nurodymai) VALUES (?, ?, ?)";
         try {
             PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
             paruostukas.setString(1,receptas.getPavadinimas());
@@ -66,23 +66,5 @@ public class ReceptuVeiksmai {
             System.out.println("Nepavyko įdėti duomenų į duomenų bazę");
         }
         return receptas;
-    }
-
-    public static ArrayList<Receptai> visuReceptuIdIrPavadinimas(Connection jungtis){
-        ArrayList<Receptai> visiReceptai = new ArrayList<>();
-        String sqlUzklausa = "SELECT r.id, r.pavadinimas FROM receptai r WHERE 1";
-
-        try{
-            PreparedStatement paruostukas = jungtis.prepareStatement(sqlUzklausa);
-            ResultSet rezultatas = paruostukas.executeQuery();
-
-            while (rezultatas.next()){
-                visiReceptai.add(new Receptai(rezultatas.getInt("id"),rezultatas.getString("pavadinimas")));
-            }
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return visiReceptai;
     }
 }

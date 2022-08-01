@@ -14,7 +14,7 @@ public class PapildomiVeiksmai {
         }
     }
 
-    public static  void isvestiListaEilutemis(ArrayList<Receptai> objektas) {
+    public static  void isvestiReceptusEilutemisTikPavadinimus(ArrayList<Receptai> objektas) {
         for (Receptai t : objektas) {
             System.out.println("Receptas = " + t.beNurodimuIrKainu());
         }

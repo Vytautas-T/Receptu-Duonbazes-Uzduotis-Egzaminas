@@ -4,12 +4,9 @@ import DBveiksmai.ReceptuVeiksmai;
 import Entity.Ingredientai;
 import Entity.Receptai;
 import Utility.KonsolesVeiksmai;
-import com.sun.source.tree.SwitchTree;
-import Utility.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class PagrindinePrograma {
     public static void main(String[] args) {
@@ -20,7 +17,7 @@ public class PagrindinePrograma {
 
         utility.PapildomiVeiksmai.isvestiListaEilutemis(ReceptuVeiksmai.gautiVisusReceptus(jungtis));
         utility.PapildomiVeiksmai.bruksniukai();
-        System.out.println(IngredientuVeiksmai.ingredientuKainuKainuVidurkis(jungtis));
+        System.out.println(IngredientuVeiksmai.ingredientuKainuVidurkis(jungtis));
         utility.PapildomiVeiksmai.bruksniukai();
         utility.PapildomiVeiksmai.isvestiListaEilutemis(IngredientuVeiksmai.grazintiIngredientusKuriuKainosMazesnesUzX(4.47,jungtis));
         utility.PapildomiVeiksmai.bruksniukai();
@@ -38,7 +35,7 @@ public class PagrindinePrograma {
                break;
 
            case 2:
-               double ing = IngredientuVeiksmai.ingredientuKainuKainuVidurkis(jungtis);
+               double ing = IngredientuVeiksmai.ingredientuKainuVidurkis(jungtis);
                System.out.println("ingredientu kainu vidurkis yra " + ing);
                break;
            case 3:
@@ -51,17 +48,22 @@ public class PagrindinePrograma {
                break;
            case 4:
                int skaiciusX;
-               System.out.println("us kiek pigesnius?");
+               System.out.println("kelis Top ingredientus norite isvesti?");
                skaiciusX = KonsolesVeiksmai.skait.nextInt();
                utility.PapildomiVeiksmai.isvestiListaEilutemis(IngredientuVeiksmai.grazintiTopXingredientus(skaiciusX,jungtis));
                break;
            case 5:
                int id;
                System.out.println("iveskite kelinta recepta. Esami receptai duomenu bazeja yra: " );
-               utility.PapildomiVeiksmai.isvestiListaEilutemis(ReceptuVeiksmai.visuReceptuIdIrPavadinimas(jungtis));
+               utility.PapildomiVeiksmai.isvestiReceptusEilutemisTikPavadinimus(ReceptuVeiksmai.gautiVisusReceptus(jungtis));
                id = KonsolesVeiksmai.skait.nextInt();
                utility.PapildomiVeiksmai.isvestiListaEilutemis(ReceptuVeiksmai.grazintiIngredientus(id,jungtis));
-
+               break;
+           case 6:
+               Receptai naujasReceptas;
+               naujasReceptas = KonsolesVeiksmai.nuskaitytiReceptaIsKonsoles();
+               ReceptuVeiksmai.idetiRecepta(jungtis,naujasReceptas);
+               System.out.println("receptas pridetas!" + naujasReceptas);
        }
 
     }
